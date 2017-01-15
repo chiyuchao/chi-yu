@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>nativeDroid II - jQueryMobile Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+    <link rel="stylesheet" href="/vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="/vendor/wow/animate.css" />
+    <link rel="stylesheet" href="/css/nativedroid2.css" />
+
+    <style>
+        /* Prevent FOUC */
+
+        body {
+            opacity: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div data-role="page">
+        <nd2-include data-src="/page/panel.html"></nd2-include>
+
+        <div data-role="header" data-position="fixed" class="wow fadeIn">
+            <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'>裝置清單</h1>
+        </div>
+
+
+        <div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+
+
+            <ul data-role="listview" data-icon="false">
+                <li data-role="list-divider">
+                    Taichung
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/examples/2.jpg" class="ui-thumbnail ui-thumbnail-circular" />
+                        <h2>中興康橋 ID:TW09-4</h2>
+                        <p>24.122947°N ,120.6738851°E PM2.5 :51 μg/m³ 溫度 : 18.5°C , 濕度 : 79% </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="/img/examples/6.jpg" class="ui-thumbnail ui-thumbnail-circular" />
+                        <h2>清水區 ID:TW09-7</h2>
+                        <p>24.299°N ,120.577°E PM2.5 :59 μg/m³ 溫度 : 18.5°C , 濕度 : 79% </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/examples/7.jpg" class="ui-thumbnail ui-thumbnail-circular" />
+                        <h2>豐原區 ID:TW09-8</h2>
+                        <p> 24.255°N ,120.721°E PM2.5 :36 μg/m³ 溫度 : 20.75°C , 濕度 : 74%
+</p>
+                    </a>
+                </li>
+
+            </ul>
+                <hr />
+            <ul data-role="listview" data-icon="false">
+                <li data-role="list-divider">
+                    Taipei
+                </li>
+                <li>
+                    <a href="./deviceDetail.html">
+                        <img src="/img/examples/13754619_1519134994779196_4930278310781203253_n.jpg" class="ui-thumbnail ui-thumbnail-circular" />
+                        <h2>中山區 ID:TW09-2</h2>
+                        <p>25.062°N ,121.527°E PM2.5:31 μg/m³  溫度 : 21.28°C ,濕度 : 59%</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/examples/5.jpg" class="ui-thumbnail ui-thumbnail-circular" />
+                        <h2>內湖區 ID:TW09-3</h2>
+                        <p>25.036°N,121.499°E PM2.5 :160 μg/m³ 溫度 : 19.5°C , 濕度 : 57%</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="//lorempixel.com/150/150/people/3/" class="ui-thumbnail ui-thumbnail-circular" />
+                        <h2>板橋區 ID:TW09-10</h2>
+                        <p>25.013°N,121.459°E PM2.5 :24 μg/m³  溫度 : 21.24°C ,濕度 : 59%</p>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+    <script src="/vendor/waves/waves.min.js"></script>
+    <script src="/vendor/wow/wow.min.js"></script>
+    <script src="/js/nativedroid2.js"></script>
+    <script src="/nd2settings.js"></script>
+
+</body>
+
+</html>

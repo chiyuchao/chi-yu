@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>nativeDroid II - jQueryMobile Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="/vendor/waves/waves.min.css" />
+		<link rel="stylesheet" href="/css/nativedroid2.css" />
+
+				<style>
+					/* Prevent FOUC */
+					body { opacity: 0; }
+				</style>
+
+	</head>
+	<body>
+
+		<div data-role="page">
+
+			<nd2-include data-src="/page/panel.html"></nd2-include>
+
+			<div data-role="header" data-position="fixed">
+				<a href="#leftpanel" class="ui-btn ui-btn-left"><i class="zmdi zmdi-menu"></i></a>
+				<h1>作品介紹</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+
+				<!-- 作品說明 -->
+
+
+
+
+
+						<h3> 作品動機與目的---懸浮粒子污染</h3>
+						<!-- 作品說明 -->
+						<div class="nd2-card card-media-right card-media-medium">
+							<div class="card-media">
+							</div>
+							<div class="card-supporting-text has-action has-title">
+								  人類排放的廢氣與日俱增，在都市中，我們往往忽視了這些懸浮粒子對於我們的傷害。小於10微米的懸浮粒子即而小於2.5微米的懸浮粒子，細懸浮粒子（PM2.5）可吸入呼吸系統，可以穿透這些屏障達到支氣管和肺泡，其比表面積大於PM10，更易吸附有毒害的物質。因此我們的設計品目的在於偵測並記錄各個時段空氣中的懸浮粒子濃度(PM2.5)，我們將偵測到的數據上傳到雲端，然後將結果顯示與地圖中，使我們能夠一目了然全台各地的懸浮粒子濃度(PM2.5)。
+							</div>
+						</div>
+
+					<h3> Sensor介紹</h3>
+        	<!-- 作品說明 -->
+					<div class="nd2-card card-media-right card-media-medium">
+						<div class="card-media">
+							<img src="/img/examples/圖片1.png">
+						</div>
+						<div class="card-title has-supporting-text">
+							<h3 class="card-primary-title">ESP8266（WiFi）</h3>
+						</div>
+						<div class="card-supporting-text has-action has-title">
+							ESP8266 是一款超低功耗的 UART-WiFi 透傳模 組，擁有業內極富競爭力的封裝大小和超低能耗技術，專為移動裝置和物聯網應用設計，可將用戶的 物理裝置連線到 Wi-Fi 無線網路上，進行互聯網或區域網路通訊，實現聯網功能。
+						</div>
+					</div>
+
+			<div class="nd2-card card-media-right card-media-medium">
+				<div class="card-media">
+					<img src="/img/examples/圖片2.png">
+				</div>
+				<div class="card-title has-supporting-text">
+					<h3 class="card-primary-title">DHT11（溫溼度）</h3>
+				</div>
+				<div class="card-supporting-text has-action has-title">
+				可以檢測周圍環境濕度和溫度與S4A IO 擴展板結合使用，可以非常容易地實現長距離環境溫濕度感知相關的互動效果。
+				</div>
+			</div>
+	</div>
+	        <div class="nd2-card card-media-right card-media-medium">
+	          <div class="card-media">
+	            <img src="/img/examples/圖片3.png">
+	          </div>
+	          <div class="card-title has-supporting-text">
+	            <h3 class="card-primary-title">PM2.5感測器</h3>
+	          </div>
+	          <div class="card-supporting-text has-action has-title">
+							GP2Y1010AU0F(PM2.5)是一款光學空氣品質感測器，設計用來感測空氣中的塵埃粒子，其內部對角安裝紅外線發光二極體和光電晶體，使其能夠探測空氣中塵埃反射光，即使非常細小的如煙草煙霧顆粒也能夠被檢測到，通常應用在空氣淨化系統中。
+	          </div>
+	        </div>
+  		</div>
+
+  </div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<script src="/vendor/waves/waves.min.js"></script>
+		<script src="/js/nativedroid2.js"></script>
+		<script src="/nd2settings.js"></script>
+
+	</body>
+</html>

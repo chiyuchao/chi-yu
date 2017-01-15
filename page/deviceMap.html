@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info windows</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+    <link rel="stylesheet" href="/vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="/css/nativedroid2.css" />
+
+    <style>
+      html, body {
+        height: 300px;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        margin: -15px;
+        padding: 0;
+        height: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-role="page">
+
+			<nd2-include data-src="/page/panel.html"></nd2-include>
+      <div data-role="header" data-position="fixed">
+				<a href="#leftpanel" class="ui-btn ui-btn-left"><i class="zmdi zmdi-menu"></i></a>
+				<h1>裝置地圖</h1>
+			</div>
+      <div role="main" class="ui-content" data-inset="false">
+        <div id="map"></div>
+      </div>
+    </div>
+    <script>
+        var geocoder, map;
+
+        function initMap() {
+            $.ajax({
+                url: 'http://140.120.54.157:8001/program/databasepmall.php',
+                data: "",
+                dataType: 'json',
+                success: getDataSuccess
+            });
+        }
+
+        function getDataSuccess(data) {
+            console.log(data);
+            var dataNum = data.length;
+            geocoder = new google.maps.Geocoder();
+            var myLatlng = new google.maps.LatLng(24.1223416, 120.6742634);
+            var mapOptions = {
+                center: myLatlng,
+                zoom: 8
+            }
+            console.log(data)
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            var ads = [];
+            for (var i = 0; i < dataNum; i++) {
+                if ($.inArray(data[i][5].toString(), ads) == -1) {
+                    ads.push(data[i][5].toString());
+                    codeAddress(data[i]);
+                }
+            }
+        }
+
+        function codeAddress(data) {
+            var html;
+            console.log("#"+data[5].toString());
+            geocoder.geocode({
+                'address': data[5].toString()
+            }, function(results, status) {
+                console.log(results)
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var loc = results[0].geometry.location;;
+                    console.log("lat = " + loc.lat() + " , lng = " + loc.lng())
+                    map.setCenter(new google.maps.LatLng(loc.lat(), loc.lng()));
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: new google.maps.LatLng(loc.lat(), loc.lng()),
+                        title: "address: " + data[5].toString() + "\nname: " + data[4],
+                        animation: google.maps.Animation.DROP
+                    });
+                    marker.addListener('click', function() {
+                        html = "";
+                        html += "<h>地點名稱： " + data[5] + "</h><br><h>裝置名稱： " + data[1] + "</h><br><h>汙染數值： "+ data[2] + "</h>" ;
+                        var infowindow = new google.maps.InfoWindow({
+                            content: html
+                        });
+                        infowindow.open(map, marker);
+                    });
+                } else {
+                    var timeout = 300;
+                    if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                        setTimeout(function() {
+                            codeAddress(data);
+                        }, timeout)
+                    } else {
+                        // alert("Geocode was not successful for the following reason : " + status);
+                    }
+                }
+            });
+        }
+    </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWyjZ4K4qJb-4zINJdeY3JV_CZgjjW9Mk&callback=initMap" async defer></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    		<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+    		<script src="/vendor/waves/waves.min.js"></script>
+    		<script src="/js/nativedroid2.js"></script>
+    		<script src="/nd2settings.js"></script>
+  </body>
+</html>

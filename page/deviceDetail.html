@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info windows</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+    <link rel="stylesheet" href="/vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="/css/nativedroid2.css" />
+
+    <style>
+      html, body {
+
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        margin: -15px;
+        padding: 0;
+        height: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-role="page">
+
+			<nd2-include data-src="/page/panel.html"></nd2-include>
+      <div data-role="header" data-position="fixed">
+				<a href="#leftpanel" class="ui-btn ui-btn-left"><i class="zmdi zmdi-menu"></i></a>
+				<h1>詳細資料</h1>
+			</div>
+      <div role="main" class="ui-content" data-inset="false">
+        DDAS
+        <!-- <div id="map"></div> -->
+      </div>
+    </div>
+    <script>
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h4 id="firstHeading" class="firstHeading">裝置1</h4>'+
+            '<div id="bodyContent">'+
+            Date() +
+            '<p>PM2.5數值： </p>'+
+            '<p>目前溫度： </p>'+
+            '<p>目前濕度： </p>'+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+
+
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf9IUL2VBnBuju0cyt-yaApjWdqJFkWxc&signed_in=true&callback=initMap"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    		<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+    		<script src="/vendor/waves/waves.min.js"></script>
+    		<script src="/js/nativedroid2.js"></script>
+    		<script src="/nd2settings.js"></script>
+
+    <script>
+    $.ajax({
+      type: 'GET',
+      url: 'http://140.120.54.157:8001/program/databasepm.php?username=7105029031&location=%E4%B8%AD%E8%88%88%E5%A4%A7%E5%AD%B8',
+      dataType: 'json',
+      async: false,
+      success: function(data){
+        document.getElementById(id).innerHTML = "";
+        console.log(data);
+      },
+      error: function(){
+        console.log('failed.');
+      }
+    });
+    </script>
+  </body>
+</html>
